@@ -327,7 +327,54 @@ alt="Exam Mentor Logo">
 </div>
 <div class="card" id="app"></div>
 </div>
+<script>
+const quiz=[
+{q:'Choose the correct meaning of "Acquit"',o:['To punish severely','To declare someone not guilty','To imprison','To accuse publicly'],c:1,m:'AcQUIT = Quit the case.'},
+{q:'Choose the correct meaning of "Aberration"',o:['Complete agreement','Sudden success','Deviation from the normal course','Permanent settlement'],c:2,m:'Aberration sounds like ERROR.'},
+{q:'Despite several allegations, the court decided to ___ the accused due to lack of evidence.',o:['indict','condemn','acquit','accuse'],c:2,m:'AcQUIT = Quit the case.'},
+{q:'Choose the antonym of Amicable.',o:['Friendly','Cordial','Hostile','Cooperative'],c:2,m:'Amicable = friendly.'},
+{q:'The government announced ___ for political prisoners after the peace agreement.',o:['Analogy','Amnesty','Amnesia','Acronym'],c:1,m:'Amnesty = official pardon.'},
+{q:'Which sentence uses the word Aberration correctly?',o:['His sudden rude behaviour was an aberration from his usual polite nature.','She bought an aberration from the market.','The aberration was served for dinner.','He aberrationed the report yesterday.'],c:0,m:'Aberration = deviation from normal.'},
+{q:'Choose the correct meaning of Amenable',o:['Stubborn and rigid','Willing to be guided or controlled','Fearful of strangers','Highly intelligent'],c:1,m:'Amenable = cooperative.'}
+];
 
-<script>eval(atob('CmNvbnN0IHF1aXo9Wwp7cTonQ2hvb3NlIHRoZSBjb3JyZWN0IG1lYW5pbmcgb2YgIkFjcXVpdCInLG86WydUbyBwdW5pc2ggc2V2ZXJlbHknLCdUbyBkZWNsYXJlIHNvbWVvbmUgbm90IGd1aWx0eScsJ1RvIGltcHJpc29uJywnVG8gYWNjdXNlIHB1YmxpY2x5J10sYzoxLG06J0FjUVVJVCA9IFF1aXQgdGhlIGNhc2UuJ30sCntxOidDaG9vc2UgdGhlIGNvcnJlY3QgbWVhbmluZyBvZiAiQWJlcnJhdGlvbiInLG86WydDb21wbGV0ZSBhZ3JlZW1lbnQnLCdTdWRkZW4gc3VjY2VzcycsJ0RldmlhdGlvbiBmcm9tIHRoZSBub3JtYWwgY291cnNlJywnUGVybWFuZW50IHNldHRsZW1lbnQnXSxjOjIsbTonQWJlcnJhdGlvbiBzb3VuZHMgbGlrZSBFUlJPUi4nfSwKe3E6J0Rlc3BpdGUgc2V2ZXJhbCBhbGxlZ2F0aW9ucywgdGhlIGNvdXJ0IGRlY2lkZWQgdG8gX19fIHRoZSBhY2N1c2VkIGR1ZSB0byBsYWNrIG9mIGV2aWRlbmNlLicsbzpbJ2luZGljdCcsJ2NvbmRlbW4nLCdhY3F1aXQnLCdhY2N1c2UnXSxjOjIsbTonQWNRVUlUID0gUXVpdCB0aGUgY2FzZS4nfSwKe3E6J0Nob29zZSB0aGUgYW50b255bSBvZiBBbWljYWJsZS4nLG86WydGcmllbmRseScsJ0NvcmRpYWwnLCdIb3N0aWxlJywnQ29vcGVyYXRpdmUnXSxjOjIsbTonQW1pY2FibGUgPSBmcmllbmRseS4nfSwKe3E6J1RoZSBnb3Zlcm5tZW50IGFubm91bmNlZCBfX18gZm9yIHBvbGl0aWNhbCBwcmlzb25lcnMgYWZ0ZXIgdGhlIHBlYWNlIGFncmVlbWVudC4nLG86WydBbmFsb2d5JywnQW1uZXN0eScsJ0FtbmVzaWEnLCdBY3JvbnltJ10sYzoxLG06J0FtbmVzdHkgPSBvZmZpY2lhbCBwYXJkb24uJ30sCntxOidXaGljaCBzZW50ZW5jZSB1c2VzIHRoZSB3b3JkIEFiZXJyYXRpb24gY29ycmVjdGx5PycsbzpbJ0hpcyBzdWRkZW4gcnVkZSBiZWhhdmlvdXIgd2FzIGFuIGFiZXJyYXRpb24gZnJvbSBoaXMgdXN1YWwgcG9saXRlIG5hdHVyZS4nLCdTaGUgYm91Z2h0IGFuIGFiZXJyYXRpb24gZnJvbSB0aGUgbWFya2V0LicsJ1RoZSBhYmVycmF0aW9uIHdhcyBzZXJ2ZWQgZm9yIGRpbm5lci4nLCdIZSBhYmVycmF0aW9uZWQgdGhlIHJlcG9ydCB5ZXN0ZXJkYXkuJ10sYzowLG06J0FiZXJyYXRpb24gPSBkZXZpYXRpb24gZnJvbSBub3JtYWwuJ30sCntxOidDaG9vc2UgdGhlIGNvcnJlY3QgbWVhbmluZyBvZiBBbWVuYWJsZScsbzpbJ1N0dWJib3JuIGFuZCByaWdpZCcsJ1dpbGxpbmcgdG8gYmUgZ3VpZGVkIG9yIGNvbnRyb2xsZWQnLCdGZWFyZnVsIG9mIHN0cmFuZ2VycycsJ0hpZ2hseSBpbnRlbGxpZ2VudCddLGM6MSxtOidBbWVuYWJsZSA9IGNvb3BlcmF0aXZlLid9Cl07CgpsZXQgaT0wLHNjb3JlPTA7CmZ1bmN0aW9uIHJlbmRlcigpewpkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYmFyJykuc3R5bGUud2lkdGg9KGkvcXVpei5sZW5ndGgqMTAwKSsnJSc7CmxldCBxPXF1aXpbaV07CmRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdhcHAnKS5pbm5lckhUTUw9YDxkaXYgY2xhc3M9InF1ZXN0aW9uIj4ke2krMX0uICR7cS5xfTwvZGl2PjxkaXYgaWQ9Im9wdHMiIGNsYXNzPSJvcHRpb25zIj48L2Rpdj48ZGl2IGlkPSJleHAiPjwvZGl2PmA7CnEuby5mb3JFYWNoKCh4LGlkeCk9PnsKbGV0IGQ9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CmQuY2xhc3NOYW1lPSdvcHRpb24nOwpkLmlubmVySFRNTD1gPGI+JHtTdHJpbmcuZnJvbUNoYXJDb2RlKDY1K2lkeCl9LjwvYj4gJHt4fWA7CmQub25jbGljaz0oKT0+Y2hlY2soaWR4KTsKb3B0cy5hcHBlbmRDaGlsZChkKTsKfSk7Cn0KZnVuY3Rpb24gY2hlY2soc2VsKXsKbGV0IHE9cXVpeltpXTsKbGV0IG9wcz1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCcub3B0aW9uJyk7CmlmKHNlbD09PXEuYyl7c2NvcmUrKztvcHNbc2VsXS5jbGFzc0xpc3QuYWRkKCdjb3JyZWN0Jyk7CmV4cC5pbm5lckhUTUw9YDxkaXYgY2xhc3M9ImV4cCI+4pyFIENvcnJlY3QgQW5zd2VyITwvZGl2PjxkaXYgY2xhc3M9Im1uZW1vbmljIj7wn5KhICR7cS5tfTwvZGl2PmA7Cn1lbHNlewpvcHNbc2VsXS5jbGFzc0xpc3QuYWRkKCd3cm9uZycpOwpvcHNbcS5jXS5jbGFzc0xpc3QuYWRkKCdjb3JyZWN0Jyk7CmV4cC5pbm5lckhUTUw9YDxkaXYgY2xhc3M9ImV4cCI+4p2MIEluY29ycmVjdC4gQ29ycmVjdCBhbnN3ZXIgaGlnaGxpZ2h0ZWQgaW4gZ3JlZW4uPC9kaXY+PGRpdiBjbGFzcz0ibW5lbW9uaWMiPvCfkqEgJHtxLm19PC9kaXY+YDsKfQpleHAuaW5uZXJIVE1MKz1gPGJ1dHRvbiBjbGFzcz0ibmV4dCIgb25jbGljaz0ibmV4dFEoKSI+TmV4dCBRdWVzdGlvbiDihpI8L2J1dHRvbj5gOwpvcHMuZm9yRWFjaChvPT5vLnN0eWxlLnBvaW50ZXJFdmVudHM9J25vbmUnKTsKfQpmdW5jdGlvbiBuZXh0USgpewppKys7CmlmKGk+PXF1aXoubGVuZ3RoKXsKbGV0IGFjYz1NYXRoLnJvdW5kKHNjb3JlL3F1aXoubGVuZ3RoKjEwMCk7CmRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdiYXInKS5zdHlsZS53aWR0aD0nMTAwJSc7CmRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdhcHAnKS5pbm5lckhUTUw9YDxkaXYgY2xhc3M9InJlc3VsdCI+PGgxPvCfj4Y8L2gxPjxoMj5RdWl6IENvbXBsZXRlZDwvaDI+PGgzPiR7c2NvcmV9LyR7cXVpei5sZW5ndGh9PC9oMz48cD5BY2N1cmFjeTogJHthY2N9JTwvcD48ZGl2IGNsYXNzPSJiYWRnZSI+JHthY2M+PTg1PydWT0NBQlVMQVJZIENIQU1QSU9OIPCfkZEnOidHT09EIExVQ0sgQ0hBTVAg4pqU77iPJ308L2Rpdj48L2Rpdj5gOwpyZXR1cm47Cn0KcmVuZGVyKCk7Cn0KcmVuZGVyKCk7Cg=='))</script>
+let i=0,score=0;
+function render(){
+document.getElementById('bar').style.width=(i/quiz.length*100)+'%';
+let q=quiz[i];
+document.getElementById('app').innerHTML=`<div class="question">${i+1}. ${q.q}</div><div id="opts" class="options"></div><div id="exp"></div>`;
+q.o.forEach((x,idx)=>{
+let d=document.createElement('div');
+d.className='option';
+d.innerHTML=`<b>${String.fromCharCode(65+idx)}.</b> ${x}`;
+d.onclick=()=>check(idx);
+opts.appendChild(d);
+});
+}
+function check(sel){
+let q=quiz[i];
+let ops=document.querySelectorAll('.option');
+if(sel===q.c){score++;ops[sel].classList.add('correct');
+exp.innerHTML=`<div class="exp">✅ Correct Answer!</div><div class="mnemonic">💡 ${q.m}</div>`;
+}else{
+ops[sel].classList.add('wrong');
+ops[q.c].classList.add('correct');
+exp.innerHTML=`<div class="exp">❌ Incorrect. Correct answer highlighted in green.</div><div class="mnemonic">💡 ${q.m}</div>`;
+}
+exp.innerHTML+=`<button class="next" onclick="nextQ()">Next Question →</button>`;
+ops.forEach(o=>o.style.pointerEvents='none');
+}
+function nextQ(){
+i++;
+if(i>=quiz.length){
+let acc=Math.round(score/quiz.length*100);
+document.getElementById('bar').style.width='100%';
+document.getElementById('app').innerHTML=`<div class="result"><h1>🏆</h1><h2>Quiz Completed</h2><h3>${score}/${quiz.length}</h3><p>Accuracy: ${acc}%</p><div class="badge">${acc>=85?'VOCABULARY CHAMPION 👑':'GOOD LUCK CHAMP ⚔️'}</div></div>`;
+return;
+}
+render();
+}
+render();
+</script>
 </body>
 </html>
